@@ -1,8 +1,17 @@
 <div class="home-container">
     <h1>
-        Veja o que estão compoartilhando
+        Veja o que estão compartilhando
     </h1>
-    <!--Form de busca-->
+    <div class="search-container">
+        <form>
+            <fa-icon [icon]="faSearch"></fa-icon>
+            <input 
+                type="text"
+                placeholder="Ou busque por um momento . . ."
+                (input)="search($event)"
+            >
+        </form>
+    </div>
     <div *ngIf="moments.length > 0; else noMoments">
         <div class="moments-container">
             <div 
@@ -17,8 +26,7 @@
                     {{ moment.title}}
                 </h3>
                 <p class="date">
-                    <!-- Em: {{ moment.created_at }} -->
-                    {{ moment.created_at }}
+                    Em: {{ moment.created_at }}
                 </p>
                 <p>
                     Comentários: {{ moment.comments!.length }}

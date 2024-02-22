@@ -14,11 +14,22 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 })
 export class HomeComponent {
   baseApiUrl = environment.baseApiUrl;
+  faSearch = faSearch;
+  searchTerm: string = '';
 
   allMoments: Moment[] = [];
   moments: Moment[] = [];
 
   constructor(private momentService: MomentService) { };
+
+  search(ev: Event) {
+    const target = ev.target as HTMLInputElement;
+    const value = target.value;
+
+    this.moments = this.allMoments.filter(moment => {
+      return moment.title.toLowerCase().includes(value);
+    })
+  }
 
   ngOnInit(): void {
     this.momentService.getMoments().subscribe((items) => {
