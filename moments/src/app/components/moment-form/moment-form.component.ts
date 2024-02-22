@@ -30,7 +30,7 @@ export class MomentFormComponent {
   }
 
   onFileSelected(ev: any) {
-    const file: File = ev.targert.files[0];
+    const file: File = ev.target.files[0];
 
     this.momentForm.patchValue({image: file});
   }
