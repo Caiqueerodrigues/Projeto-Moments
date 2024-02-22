@@ -1,3 +1,11 @@
-<h2>
-    Página Home
-</h2>
+<div class="home-container">
+    <h1>
+        Veja o que estão compoartilhando
+    </h1>
+    <!--Form de busca-->
+    <div *ngFor="let moment of moments">
+        <h2>
+            {{ moment.title}}
+        </h2>
+    </div>
+</div>

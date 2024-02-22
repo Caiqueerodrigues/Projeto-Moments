@@ -1,4 +1,6 @@
-<form>
+<form (ngSubmit)="submit()" [formGroup]="momentForm" #formDir="ngForm">
+    <!--submit é o envio de fato-->
+    <!-- formGroup tem que ter esta SINTAXE, o nome da variavel pode ser qualquer, desde que declarada no ts-->
     <div class="form-group">
         <label for="title">
             Título:
@@ -8,7 +10,13 @@
             id="title" 
             placeholder="Coloque o título" 
             required
+            formControlName="title"
         >
+        <div *ngIf="title.invalid && formDir.submitted" class="validation-error">
+            <p *ngIf="title.errors?.['required']" class="text-red">
+                O título é obrigatório.
+            </p>
+        </div>
     </div>
     <div class="form-group">
         <label for="description">
@@ -18,13 +26,23 @@
             id="description" 
             placeholder="O que aconteceu lá?" 
             required
+            formControlName="description"
         ></textarea>
+        <div *ngIf="description.invalid && formDir.submitted" class="validation-error">
+            <p *ngIf="description.errors?.['required']" class="text-red">
+                A descrição é obrigatório.
+            </p>
+        </div>
     </div>
     <div class="form-group">
         <label for="image">
             Coloque a foto que mais marcou: 
         </label>
-        <input type="file" id="image">
+        <input 
+            type="file" 
+            id="image"
+            (change)="onFileSelected($event)"
+        >
     </div>
     <input type="submit" value="{{ btnText }}">
 </form>
