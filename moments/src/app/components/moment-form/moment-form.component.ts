@@ -28,6 +28,9 @@ export class MomentFormComponent {
   get description() {
     return this.momentForm.get('description')!;
   }
+  get image() {
+    return this.momentForm.get('image')!;
+  }
 
   onFileSelected(ev: any) {
     const file: File = ev.target.files[0];
