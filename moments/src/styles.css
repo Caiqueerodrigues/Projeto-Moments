@@ -98,3 +98,8 @@ button fa-icon, a fa-icon {
     color: #fff;
     background-color: #dc3545;
 }
+
+.text-red {
+    color: #dc3545;
+    padding-left: 10px;
+}

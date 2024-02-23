@@ -41,30 +41,32 @@ h3 {
 
 /*Comments*/
 .comment-container {
-    text-align: end;
+    text-align: left;
     border-bottom: 1px solid #efefef;
     padding: 1em 0;
 
-    .comment {
-        font-size: 0.9em;
-    }
     
-    .author {
-        font-size: 0.8em;
-    }
+}
+
+.author {
+    font-size: 0.8em;
+}
+
+.comment {
+    font-size: 1.1em;
 }
 
 .comment-form {
     margin-bottom: 3em;
 
-    form {
-        margin-top: 1em;
-        text-align: left;
-        max-width: 300px;
-        margin-left: 0;
-    }
+}
+form {
+    margin-top: 1em;
+    text-align: left;
+    max-width: 300px;
+    margin-left: 0;
+}
 
-    span {
-        font-weight: bold;
-    }
+span {
+    font-weight: bold;
 }

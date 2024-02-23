@@ -35,7 +35,7 @@
                 </p>
                 <p class="author">
                     <span> por: </span>
-                    {{ comment.userName }}
+                    {{ comment.username }}
                 </p>
             </div>
         </div>
@@ -46,17 +46,42 @@
         </ng-template>
     </div>
     <div class="comment-form">
-            <form>
-                <div class="form-group">
-                    <h3>
-                        Deixe um comentário:
-                    </h3>
-                    <label for="text">Comentário: </label>
-                    <textarea id="text" placeholder="O que você quer comentar?" required></textarea>
+        <form 
+            [formGroup]="commentForm" 
+            #formDir="ngForm" 
+            (ngSubmit)="onSubmit(formDir)"
+        >
+            <div class="form-group">
+                <h3>
+                    Deixe um comentário:
+                </h3>
+                <label for="text">Comentário: </label>
+                <textarea 
+                    id="text" 
+                    placeholder="O que você quer comentar?" 
+                    required
+                    formControlName="text"
+                ></textarea>
+                <div *ngIf="text.invalid && formDir.submitted" class="validation-error">
+                    <p *ngIf="text.errors?.['required']" class="text-red">
+                        O comentário é obrigatório.
+                    </p>
+                </div>
             </div>
             <div class="form-group">
                 <label for="name">Nome: </label>
-                <input type="text" id="name" placeholder="Digite seu nome" required />
+                <input 
+                    type="text" 
+                    id="name" 
+                    placeholder="Digite seu nome" 
+                    required 
+                    formControlName="username"
+                />
+                <div *ngIf="username.invalid && formDir.submitted" class="validation-error">
+                    <p *ngIf="username.errors?.['required']" class="text-red">
+                        O nome é obrigatório.
+                    </p>
+                </div>
             </div>
             <input type="submit" value="Comentar">
         </form>

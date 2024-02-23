@@ -7,6 +7,6 @@ export interface Moment {
     updated_at?: string,
     comments?: [{
         text: string,
-        userName: string
+        username: string
     }];
 };
