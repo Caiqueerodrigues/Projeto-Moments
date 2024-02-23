@@ -5,5 +5,6 @@
     <app-moment-form 
         [momentData]="moment" 
         [btnText]="btnText" 
+        (onSubmit)="editHandler($event)"
     />
 </div>

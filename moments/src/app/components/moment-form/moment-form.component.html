@@ -1,6 +1,7 @@
 <form (ngSubmit)="submit()" [formGroup]="momentForm" #formDir="ngForm">
     <!--submit é o envio de fato-->
     <!-- formGroup tem que ter esta SINTAXE, o nome da variavel pode ser qualquer, desde que declarada no ts-->
+    <input type="hidden" formControlName="id">
     <div class="form-group">
         <label for="title">
             Título:
