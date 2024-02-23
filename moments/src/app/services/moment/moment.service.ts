@@ -28,4 +28,9 @@ export class MomentService {
     return this.http.post<FormData>(this.apiUrl, formData)
   }
 
+  deleteMoment(id: number) {
+    const url = `${this.apiUrl}/${id}`;
+
+    return this.http.delete(url);
+  }
 }

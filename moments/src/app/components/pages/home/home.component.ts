@@ -36,10 +36,8 @@ export class HomeComponent {
       const data = items.data;
         
       data.map((item) => {
-        const date = new Date(item.created_at!).toLocaleDateString();
         item.created_at = new Date(item.created_at!).toLocaleDateString();
       })
-      
       
       this.allMoments = data;
       this.moments = data;

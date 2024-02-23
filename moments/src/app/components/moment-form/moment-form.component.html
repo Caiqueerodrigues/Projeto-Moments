@@ -42,13 +42,7 @@
             type="file" 
             id="image"
             (change)="onFileSelected($event)"
-            formControlName="image"
         >
-        <div *ngIf="image.invalid && formDir.submitted" class="validation-error">
-            <p *ngIf="image.errors?.['required']" class="text-red">
-                A descrição é obrigatório.
-            </p>
-        </div>
     </div>
     <input type="submit" value="{{ btnText }}">
 </form>
